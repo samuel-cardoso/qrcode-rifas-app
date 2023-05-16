@@ -10,15 +10,18 @@ import QRCode from "react-qr-code";
 import QRCodeLink from "qrcode";
 
 function Main() {
-    const [link, setLink] = useState('');
+
+    const searchParams = new URLSearchParams(document.location.search)
+
+    const [link, setLink] = useState(searchParams.get('samuel') || '');
     const [qrcodeLink, setQrcodeLink] = useState('');
 
-    function handleGenerate(link_url){
+    function handleGenerate(link_url) {
         QRCodeLink.toDataURL(link_url, {
             width: 600,
             margin: 3,
-        }, function(err, URL){
-            setQrcodeLink(URL);
+        }, function (err, url) {
+            setQrcodeLink(url);
         })
     }
 
@@ -41,17 +44,21 @@ function Main() {
                     <div className="card flex flex-col justify-content-center mb-10">
                         <QRCode className="hidden" value={link} />
                         <h1 className="title-input text-3xl font-bold mb-5">Insira o link da sua rifa</h1>
-                        <InputText type="URL" placeholder="https://www.suarifa.com.br" value={link} onChange={ (e) => handleQrcode(e)} />
+                        <InputText type="URL" placeholder="https://www.suarifa.com.br" value={link} onChange={(e) => handleQrcode(e)} />
                     </div>
 
+
                     <div className="card flex flex-wrap justify-content-center gap-3 d-none">
-                        <Button  label="Gerar QR Code" href={qrcodeLink} dowload={`qrcode.png`}/>
+                        
+                        <a href={qrcodeLink} download={"qrcode.png"}>
+                        <Button label="Gerar QR Code"/>
+                        </a>
                     </div>
                 </div>
 
             </main>
         </div>
     );
-} 
+}
 
 export default Main;
