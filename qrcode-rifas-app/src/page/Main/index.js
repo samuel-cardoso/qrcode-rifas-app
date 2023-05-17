@@ -80,8 +80,7 @@ export default function Main() {
                                         <Button className="rounded-full" label="Gerar QR Code" disabled={!isValidUrl} />
                                     </a>
                                 </div>
-                            </
-                            div>
+                            </div>
                         </div>
                     </div>
                 </div>
