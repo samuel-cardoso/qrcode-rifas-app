@@ -43,7 +43,7 @@ export default function Main() {
     }
 
     function handleDownload(e) {
-        if (!isValidUrl) {
+        if (!link || !isValidUrl) {
             e.preventDefault();
         }
     }
@@ -76,7 +76,7 @@ export default function Main() {
                                 </div>
                                 {!isValidUrl && <small className="text-red-500">Por favor, digite uma URL válida.</small>}
                                 <div className="flex flex-wrap justify-center gap-3 mt-7">
-                                    <a className="w-full" href={qrcodeLink} download={isValidUrl ? "qrcode.png" : ""} onClick={handleDownload}>
+                                    <a className="w-full" href={qrcodeLink} download={link && isValidUrl ? "qrcode.png" : ""} onClick={handleDownload}>
                                         <Button className="rounded-full" label="Gerar QR Code" disabled={!isValidUrl} />
                                     </a>
                                 </div>
