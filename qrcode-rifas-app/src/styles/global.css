@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: inter-bold;
+  src: url(../font/Inter-Bold.ttf);
+}
+
+@font-face {
+  font-family: inter-regular;
+  src: url(../font/Inter-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,10 +22,28 @@ html,
 body,
 #root {
   min-height: 100%;
+  font-family: inter-bold;
 }
 
 body {
   -webkit-font-smoothing: antialiased !important;
+}
+
+.description {
+  background-color: #ffffff;
+  color: #2B2B2B;
+}
+
+.title-input {
+  color: #2B2B2B;
+}
+
+h1 > span {
+  color: #C847D3 !important;
+}
+
+.generate-qrcode {
+  background-color: #A346E1 !important;
 }
 
 button {
@@ -26,8 +54,24 @@ button {
 
 .p-button {
   width: 100%;
+  font-family: inter-bold;
+  background-color: #C847D3 !important;
+  border: #C847D3 !important;
+}
+
+.p-inputtext {
+  width: 100%;
+  font-family: inter-regular;
+  border: none;
+  background: #f8f9fa;
 }
 
 .p-button-label {
-  font-size: 20PX;
+  font-size: 20px;
+}
+
+.p-button:enabled:hover, .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: #f04fff !important;
+  color: #ffffff;
+  border-color: #f04fff !important;
 }
