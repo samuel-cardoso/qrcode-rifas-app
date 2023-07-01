@@ -1,1 +1,0 @@
-# QR Code para Rifas
